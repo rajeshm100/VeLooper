@@ -1,0 +1,23 @@
+.btn {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-primary);
+  background: var(--muted-purple);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 18px var(--glow-p);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+.show { opacity: 1; pointer-events: auto; transform: none; }
+.btn:hover { background: var(--text-secondary); color: var(--bg-primary); }

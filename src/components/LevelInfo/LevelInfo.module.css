@@ -1,0 +1,11 @@
+.panel {
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem; max-width: 540px; margin: 1.1rem auto 0;
+  padding: 0.8rem 1rem; text-align: center; border-radius: 12px; border: 1px dashed var(--warm-yellow); background: rgba(0, 0, 0, 0.35);
+}
+.title { color: var(--warm-yellow); font-family: var(--font-display); font-size: 1.05rem; }
+.state {
+  padding: 0.1rem 0.7rem; border-radius: 999px; color: var(--bg-primary); background: var(--soft-blue);
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.lines { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1rem; color: rgba(255, 255, 255, 0.84); font-size: 0.85rem; line-height: 1.5; }
+.reward { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--warm-yellow); }

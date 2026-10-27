@@ -1,0 +1,32 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.3rem 0.95rem;
+  border-radius: 999px;
+  color: var(--warm-yellow);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid rgba(244, 233, 140, 0.8);
+  background: rgba(244, 233, 140, 0.14);
+  box-shadow: 0 0 18px var(--glow-y), inset 0 0 10px rgba(244, 233, 140, 0.12);
+  text-shadow: 0 0 10px var(--glow-y);
+}
+.ping::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--subtle-green);
+  animation: ping 1.8s ease-out infinite;
+}
+@media (max-width: 480px) {
+  .pill { font-size: 0.64rem; letter-spacing: 0.1em; gap: 0.45rem; padding: 0.28rem 0.75rem; white-space: nowrap; }
+}
+@media (max-width: 340px) {
+  .pill { font-size: 0.58rem; letter-spacing: 0.06em; padding: 0.25rem 0.6rem; }
+}

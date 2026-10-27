@@ -1,0 +1,65 @@
+/* Design tokens. The colour palette is the original VELoop palette, unchanged. */
+:root {
+  /* Core palette kept strictly identical */
+  --bg-primary: #161827;
+  --bg-secondary: #000052;
+  --text-primary: #ffffff;
+  --text-secondary: #d2af26;
+  --silver: #c0c0c0;
+  --soft-blue: #93caed;
+  --warm-yellow: #f4e98c;
+  --muted-purple: #805b87;
+  --subtle-green: #b7e9c1;
+  --danger-red: #ff6b6b;
+  --demo-orange: #ffaa00;
+
+  --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --radius: 14px;
+  --radius-card: 28px;
+  --radius-pill: 9999px;
+
+  /* Glow dial: 0 = off, 0.6 = subtle, 1 = default, 1.4 = intense */
+  --glow: 1;
+  --glow-y: rgba(244, 233, 140, calc(0.45 * var(--glow)));
+  --glow-gold: rgba(210, 175, 38, calc(0.55 * var(--glow)));
+  --glow-b: rgba(147, 202, 237, calc(0.45 * var(--glow)));
+  --glow-g: rgba(183, 233, 193, calc(0.45 * var(--glow)));
+  --glow-p: rgba(128, 91, 135, calc(0.55 * var(--glow)));
+
+  /* Premium Glass Surfaces & Elevations */
+  --glass-surface: rgba(22, 24, 39, 0.68);
+  --glass-surface-card: rgba(18, 20, 36, 0.78);
+  --glass-surface-hover: rgba(27, 30, 52, 0.86);
+  --glass-subtle: rgba(255, 255, 255, 0.04);
+  --glass-highlight: rgba(255, 255, 255, 0.08);
+
+  /* Micro Borders */
+  --border-glass: rgba(255, 255, 255, 0.09);
+  --border-glass-bright: rgba(255, 255, 255, 0.18);
+  --border-gold-glow: rgba(244, 233, 140, 0.4);
+  --border-blue-glow: rgba(147, 202, 237, 0.35);
+
+  /* Premium Multi-Layer Shadows */
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 24px 70px -12px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-card-hover: 0 32px 85px -10px rgba(0, 0, 0, 0.7), 0 0 42px -6px var(--glow-gold);
+
+  /* Animation Easing */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Bootstrap variable overrides so Bootstrap uses our palette */
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-color: var(--text-primary);
+  --bs-body-font-family: var(--font-main);
+  --bs-border-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 640px) {
+  :root {
+    --glow: 0.8;
+  }
+}

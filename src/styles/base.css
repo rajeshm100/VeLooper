@@ -1,0 +1,89 @@
+@import './tokens.css';
+@import './animations.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  scrollbar-color: var(--muted-purple) var(--bg-primary);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(rgba(147, 202, 237, 0.07) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 0, 82, 0.75), transparent 80%),
+    radial-gradient(ellipse 60% 40% at 10% 25%, rgba(128, 91, 135, 0.22), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 90% 65%, rgba(0, 0, 82, 0.6), transparent 75%),
+    radial-gradient(ellipse 50% 35% at 50% 95%, rgba(128, 91, 135, 0.18), transparent 70%);
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* soft dynamic cosmic ambient glows drifting behind the page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -15%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 38% at 20% 18%, rgba(128, 91, 135, 0.32), transparent 68%),
+    radial-gradient(38% 34% at 85% 28%, rgba(147, 202, 237, 0.18), transparent 68%),
+    radial-gradient(42% 36% at 65% 85%, rgba(244, 233, 140, 0.1), transparent 70%);
+  animation: pageDrift 28s ease-in-out infinite alternate;
+  filter: blur(40px);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(640px 640px at 25% 8%, rgba(244, 233, 140, calc(0.12 * var(--glow))), transparent 70%),
+    radial-gradient(580px 580px at 92% 58%, rgba(147, 202, 237, calc(0.15 * var(--glow))), transparent 70%),
+    radial-gradient(520px 520px at 45% 98%, rgba(128, 91, 135, calc(0.18 * var(--glow))), transparent 70%);
+  animation: orbPulse 7s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); }
+img { max-width: 100%; }
+::selection { background: var(--warm-yellow); color: var(--bg-primary); }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--muted-purple); border-radius: 10px; border: 2px solid var(--bg-primary); }
+::-webkit-scrollbar-thumb:hover { background: var(--warm-yellow); }
+:focus-visible { outline: 2px solid var(--soft-blue); outline-offset: 3px; }
+
+/* set by scrollToSection() so the section you jumped to flashes */
+[data-flash='true'] { animation: flash 1.6s ease-out; }
+
+.visually-hidden-text {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  body::before, body::after { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

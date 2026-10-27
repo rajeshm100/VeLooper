@@ -1,0 +1,8 @@
+{
+  "name": "Hello VeLooper | VELoop Rewards",
+  "description": "Earn XP, climb nine levels and play daily mini games with VELoop Rewards.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

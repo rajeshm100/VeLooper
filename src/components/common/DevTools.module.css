@@ -1,0 +1,11 @@
+.panel {
+  position: fixed; left: 1rem; bottom: 1rem; z-index: 850; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem;
+  max-width: calc(100vw - 6rem); padding: 0.5rem 0.7rem; border-radius: 14px; font-size: 0.75rem;
+  background: rgba(0, 0, 0, 0.75); border: 1px solid var(--demo-orange); backdrop-filter: blur(8px);
+}
+.title { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--demo-orange); font-weight: 700; }
+.panel button {
+  padding: 0.2rem 0.6rem; border: 1px solid var(--silver); border-radius: 999px; background: transparent;
+  color: var(--text-primary); font-size: 0.75rem; cursor: pointer;
+}
+.panel button:hover { border-color: var(--warm-yellow); color: var(--warm-yellow); }

@@ -1,0 +1,9 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  max-width: 1180px;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (max-width: 640px) { .page { gap: 1.6rem; } }

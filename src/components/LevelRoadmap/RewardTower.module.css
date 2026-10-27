@@ -1,0 +1,14 @@
+.tower { display: block; width: 100%; max-width: 230px; height: auto; margin: 1.2rem auto 0; overflow: visible; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45)); }
+.tier rect { fill: url(#twtPur); stroke: var(--bg-primary); stroke-width: 1.5; opacity: 0.85; transition: fill 0.6s ease; }
+.tier text { fill: var(--silver); font: 800 13px Arial, sans-serif; }
+.lock rect { fill: var(--silver); stroke: none; opacity: 0.8; }
+.lock path { stroke: var(--silver); stroke-width: 1.6; }
+.done rect { fill: url(#twtGrn); opacity: 1; }
+.current rect { fill: url(#twgd); opacity: 1; }
+.done text, .current text { fill: var(--bg-primary); }
+.trail { fill: none; stroke: var(--warm-yellow); stroke-width: 3; stroke-dasharray: 2 7; stroke-linecap: round; }
+.mascot { transition: transform 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); }
+.mascot > g { animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-3px) scale(0.62); } }
+@media (max-width: 480px) { .tower { max-width: 170px; } }
+@media (prefers-reduced-motion: reduce) { .mascot { transition: none; } }

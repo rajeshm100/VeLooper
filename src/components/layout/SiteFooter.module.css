@@ -1,0 +1,24 @@
+.footer {
+  position: relative;
+  margin-top: 4rem;
+  padding: 3rem 1rem 3.5rem;
+  text-align: center;
+  color: rgba(192, 192, 192, 0.85);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  background: rgba(12, 14, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--muted-purple) 25%, var(--warm-yellow) 50%, var(--subtle-green) 75%, transparent);
+  box-shadow: 0 0 10px var(--glow-y);
+}
