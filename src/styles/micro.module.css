@@ -1,0 +1,9 @@
+/* Shared "micro label" look: small, bold, tracked-out uppercase.
+   Other modules pull it in with:  composes: micro from '../../styles/micro.module.css'; */
+.micro {
+  font-size: var(--micro-size);
+  font-weight: 700;
+  letter-spacing: var(--micro-track);
+  line-height: 1.3;
+  text-transform: uppercase;
+}

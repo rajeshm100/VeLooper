@@ -4,8 +4,8 @@
 }
 .title { color: var(--warm-yellow); font-family: var(--font-display); font-size: 1.05rem; }
 .state {
-  padding: 0.1rem 0.7rem; border-radius: 999px; color: var(--bg-primary); background: var(--soft-blue);
+  padding: 0.1rem 0.7rem; border-radius: 999px; color: var(--bg-primary); background: var(--accent-interactive);
   font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
 }
-.lines { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1rem; color: rgba(255, 255, 255, 0.84); font-size: 0.85rem; line-height: 1.5; }
+.lines { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1rem; color: var(--text-body); font-size: 0.85rem; line-height: 1.5; }
 .reward { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--warm-yellow); }

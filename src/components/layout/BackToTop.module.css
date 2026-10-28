@@ -11,7 +11,7 @@
   border: none;
   border-radius: 50%;
   color: var(--text-primary);
-  background: var(--muted-purple);
+  background: var(--fab-bg);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 18px var(--glow-p);
   opacity: 0;
   pointer-events: none;

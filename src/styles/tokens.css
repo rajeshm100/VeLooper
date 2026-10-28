@@ -1,6 +1,5 @@
 /* Design tokens. The colour palette is the original VELoop palette, unchanged. */
 :root {
-  /* Core palette kept strictly identical */
   --bg-primary: #161827;
   --bg-secondary: #000052;
   --text-primary: #ffffff;
@@ -15,47 +14,172 @@
 
   --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
-  --radius: 14px;
-  --radius-card: 28px;
-  --radius-pill: 9999px;
+  --radius: 12px;
+  --radius-card: 26px;
 
   /* Glow dial: 0 = off, 0.6 = subtle, 1 = default, 1.4 = intense */
   --glow: 1;
-  --glow-y: rgba(244, 233, 140, calc(0.45 * var(--glow)));
+  --glow-y: rgba(244, 233, 140, calc(0.5 * var(--glow)));
   --glow-gold: rgba(210, 175, 38, calc(0.55 * var(--glow)));
-  --glow-b: rgba(147, 202, 237, calc(0.45 * var(--glow)));
-  --glow-g: rgba(183, 233, 193, calc(0.45 * var(--glow)));
-  --glow-p: rgba(128, 91, 135, calc(0.55 * var(--glow)));
+  --glow-b: rgba(147, 202, 237, calc(0.5 * var(--glow)));
+  --glow-g: rgba(183, 233, 193, calc(0.5 * var(--glow)));
+  --glow-p: rgba(128, 91, 135, calc(0.6 * var(--glow)));
 
-  /* Premium Glass Surfaces & Elevations */
-  --glass-surface: rgba(22, 24, 39, 0.68);
-  --glass-surface-card: rgba(18, 20, 36, 0.78);
-  --glass-surface-hover: rgba(27, 30, 52, 0.86);
-  --glass-subtle: rgba(255, 255, 255, 0.04);
-  --glass-highlight: rgba(255, 255, 255, 0.08);
+  /* ------------------------------------------------------------------
+     NEW palette (additive: nothing above changes). Used by the Neon theme.
+     ------------------------------------------------------------------ */
+  --electric-cyan: #22d3ee;
+  --cyan-soft: #67e8f9;
+  --neon-green: #34d399;
+  --neon-green-deep: #10b981;
+  --night-black: #0b0f19;
+  --night-navy: #111827;
+  --off-white: #f1f5f9;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
 
-  /* Micro Borders */
-  --border-glass: rgba(255, 255, 255, 0.09);
-  --border-glass-bright: rgba(255, 255, 255, 0.18);
-  --border-gold-glow: rgba(244, 233, 140, 0.4);
-  --border-blue-glow: rgba(147, 202, 237, 0.35);
+  /* ------------------------------------------------------------------
+     ROLE tokens. Components use these, never the raw colours.
+       interactive = links, active nav, focus, informational blue
+       cta         = the main action buttons
+       reward      = XP numbers, rewards, level badges (always gold)
+       success     = completed, positive, "just N XP to go"
+     The values here are the CLASSIC theme: identical to the original look.
+     ------------------------------------------------------------------ */
+  --accent-interactive: var(--soft-blue);
+  --interactive-rgb: 147, 202, 237;
+  --success: var(--subtle-green);
+  --success-rgb: 183, 233, 193;
+  --reward: var(--warm-yellow);
+  --reward-deep: var(--text-secondary);
 
-  /* Premium Multi-Layer Shadows */
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 24px 70px -12px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  --shadow-card-hover: 0 32px 85px -10px rgba(0, 0, 0, 0.7), 0 0 42px -6px var(--glow-gold);
+  --cta-from: var(--warm-yellow);
+  --cta-to: var(--text-secondary);
+  --cta-text: var(--bg-primary);
+  --cta-glow: var(--glow-y);
+  --cta-glow-2: var(--glow-gold);
 
-  /* Animation Easing */
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --title-color: var(--warm-yellow);
+  --title-glow: var(--glow-y);
+  --brand-color: var(--warm-yellow);
+  --subhead-color: var(--warm-yellow);
+  --hero-headline: var(--soft-blue);
+  --level-text: var(--soft-blue);
+  --xp-text: var(--soft-blue);
+
+  --label-color: var(--warm-yellow);
+  --label-border: rgba(244, 233, 140, 0.8);
+  --label-bg: rgba(244, 233, 140, 0.14);
+  --label-glow: var(--glow-y);
+
+  --nav-active: var(--warm-yellow);
+  --nav-active-bg: rgba(244, 233, 140, 0.16);
+  --nav-active-ring: rgba(244, 233, 140, 0.55);
+  --nav-glow: var(--glow-y);
+
+  --toast-accent: var(--warm-yellow);
+  --fab-bg: var(--muted-purple);
+  --focus-ring: var(--soft-blue);
+  --progress-gradient: linear-gradient(90deg, var(--muted-purple), var(--text-secondary) 55%, var(--warm-yellow));
+  --tile-icon-gradient: linear-gradient(135deg, var(--warm-yellow), var(--soft-blue));
+  --border-gradient: linear-gradient(140deg, rgba(244, 233, 140, 0.95), rgba(147, 202, 237, 0.4) 35%, rgba(128, 91, 135, 0.8) 70%, rgba(183, 233, 193, 0.8));
+
+  --text-body: rgba(255, 255, 255, 0.84);
+  --text-muted: rgba(255, 255, 255, 0.72);
+
+  --card-overlay-top: rgba(0, 0, 50, 0.62);
+  --card-overlay-bottom: rgba(10, 12, 30, 0.8);
+  --hero-overlay-top: rgba(0, 0, 55, 0.5);
+  --hero-overlay-bottom: rgba(10, 12, 28, 0.72);
+
+  /* page background washes and glow orbs */
+  --wash-1: rgba(0, 0, 82, 0.55);
+  --wash-2: rgba(128, 91, 135, 0.18);
+  --drift-1: rgba(128, 91, 135, 0.28);
+  --drift-2: rgba(147, 202, 237, 0.14);
+  --drift-3: rgba(244, 233, 140, 0.08);
+  --orb-1: rgba(244, 233, 140, 0.14);
+  --orb-2: rgba(147, 202, 237, 0.17);
+  --orb-3: rgba(128, 91, 135, 0.2);
+
+  /* small uppercase labels, used everywhere for a consistent "dashboard" look */
+  --micro-size: 0.7rem;
+  --micro-track: 0.12em;
 
   /* Bootstrap variable overrides so Bootstrap uses our palette */
   --bs-body-bg: var(--bg-primary);
   --bs-body-color: var(--text-primary);
   --bs-body-font-family: var(--font-main);
-  --bs-border-color: rgba(255, 255, 255, 0.12);
+  --bs-border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ====================================================================
+   NEON theme: aligned with the VELoop Rewards site (near-black navy,
+   electric cyan, neon green, gold for rewards, slate neutrals).
+   Switch with <html data-theme="neon">.
+   ==================================================================== */
+[data-theme='neon'] {
+  --bg-primary: var(--night-black);
+  --bg-secondary: var(--night-navy);
+  --text-primary: var(--off-white);
+  --silver: var(--slate-400);
+
+  --glow-b: rgba(34, 211, 238, calc(0.5 * var(--glow)));
+  --glow-g: rgba(52, 211, 153, calc(0.5 * var(--glow)));
+  --glow-p: rgba(34, 211, 238, calc(0.35 * var(--glow)));
+
+  --accent-interactive: var(--electric-cyan);
+  --interactive-rgb: 34, 211, 238;
+  --success: var(--neon-green);
+  --success-rgb: 52, 211, 153;
+
+  --cta-from: var(--neon-green);
+  --cta-to: var(--neon-green-deep);
+  --cta-text: var(--night-black);
+  --cta-glow: rgba(52, 211, 153, calc(0.5 * var(--glow)));
+  --cta-glow-2: rgba(16, 185, 129, calc(0.5 * var(--glow)));
+
+  --title-color: var(--off-white);
+  --title-glow: var(--glow-b);
+  --brand-color: var(--off-white);
+  --subhead-color: var(--cyan-soft);
+  --hero-headline: var(--off-white);
+  --level-text: var(--cyan-soft);
+  --xp-text: var(--warm-yellow);
+
+  --label-color: var(--cyan-soft);
+  --label-border: rgba(34, 211, 238, 0.7);
+  --label-bg: rgba(34, 211, 238, 0.12);
+  --label-glow: var(--glow-b);
+
+  --nav-active: var(--cyan-soft);
+  --nav-active-bg: rgba(34, 211, 238, 0.15);
+  --nav-active-ring: rgba(34, 211, 238, 0.6);
+  --nav-glow: var(--glow-b);
+
+  --toast-accent: var(--neon-green);
+  --fab-bg: #0e7490;
+  --focus-ring: var(--electric-cyan);
+  --progress-gradient: linear-gradient(90deg, var(--electric-cyan), var(--neon-green) 70%, var(--warm-yellow));
+  --tile-icon-gradient: linear-gradient(135deg, var(--electric-cyan), var(--neon-green));
+  --border-gradient: linear-gradient(140deg, rgba(34, 211, 238, 0.9), rgba(148, 163, 184, 0.25) 35%, rgba(52, 211, 153, 0.7) 70%, rgba(244, 233, 140, 0.7));
+
+  --text-body: var(--slate-300);
+  --text-muted: var(--slate-400);
+
+  --card-overlay-top: rgba(8, 13, 26, 0.7);
+  --card-overlay-bottom: rgba(4, 7, 16, 0.88);
+  --hero-overlay-top: rgba(8, 14, 30, 0.55);
+  --hero-overlay-bottom: rgba(4, 7, 16, 0.8);
+
+  --wash-1: rgba(8, 47, 73, 0.55);
+  --wash-2: rgba(16, 185, 129, 0.1);
+  --drift-1: rgba(34, 211, 238, 0.18);
+  --drift-2: rgba(52, 211, 153, 0.1);
+  --drift-3: rgba(244, 233, 140, 0.06);
+  --orb-1: rgba(34, 211, 238, 0.14);
+  --orb-2: rgba(52, 211, 153, 0.12);
+  --orb-3: rgba(56, 189, 248, 0.14);
 }
 
 @media (max-width: 640px) {

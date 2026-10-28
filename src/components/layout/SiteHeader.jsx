@@ -1,6 +1,7 @@
 import { copy } from '../../data/copy';
 import { logo } from '../../assets';
 import SiteNav from './SiteNav';
+import ThemeToggle from './ThemeToggle';
 import styles from './SiteHeader.module.css';
 
 export default function SiteHeader({ active }) {
@@ -20,6 +21,9 @@ export default function SiteHeader({ active }) {
       </div>
       <p className={styles.subtitle}>{copy.siteSubtitle}</p>
       <SiteNav active={active} variant="header" />
+      <div className={styles.themeSlot}>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }

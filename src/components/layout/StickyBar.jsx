@@ -3,6 +3,7 @@ import { copy } from '../../data/copy';
 import { logo } from '../../assets';
 import { scrollToSection } from '../../utils/scroll';
 import SiteNav from './SiteNav';
+import ThemeToggle from './ThemeToggle';
 import styles from './StickyBar.module.css';
 
 // A slim glass bar that slides in once the header has scrolled away (hidden on phones by CSS).
@@ -21,6 +22,7 @@ export default function StickyBar({ visible, active }) {
         <span>{copy.siteTitle}</span>
       </a>
       <SiteNav active={active} variant="sticky" />
+      <ThemeToggle compact />
     </div>
   );
 }

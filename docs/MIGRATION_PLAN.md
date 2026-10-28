@@ -35,9 +35,18 @@ reference when porting: search it for the names given below.
 - [x] 11 more unit tests (32 in total): puzzle shuffle solvability, moves, score, tiers, arrow keys, daily reset, badges
 - [x] Responsive check at 320, 360, 414, 768, 1024 and 1440 px (no sideways overflow)
 
+## Theme work: done (after the conversion)
+
+- [x] Additive palette (electric cyan, neon green, night black/navy, off-white, slate) in `tokens.css`
+- [x] Role tokens (interactive, cta, reward, success, title, label, nav, text) mapped per theme; all components use roles
+- [x] `ThemeContext`, `ThemeToggle` (header + sticky bar), early script in `index.html`, `utils/theme.js` + tests
+- [x] Shared micro-label style (`micro.module.css`)
+- [x] Checked both themes at 320 to 1440 px (no overflow) and measured text contrast (all WCAG AA)
+
 ## Ideas for next steps (not required)
 
 - Replace `data/rewardsConfig.js` with a call to `GET /api/rewards/me` (keep the same shape) and move XP granting to the server.
+- Optional: follow the system setting with `prefers-color-scheme` or `prefers-contrast` when the user has not chosen a theme.
 - Level 6 to 9 XP targets in `rewardsConfig.js` are placeholders from the original page; set the real numbers.
 - Add Vitest + React Testing Library for component tests, and Playwright for end-to-end tests.
 - Add ESLint and Prettier, and TypeScript if the team prefers.

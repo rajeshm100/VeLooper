@@ -1,60 +1,33 @@
 .card {
-  --accent: var(--soft-blue);
+  --accent: var(--accent-interactive);
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.55rem;
   height: 100%;
-  padding: 1.15rem 1rem;
+  padding: 1rem;
   text-align: left;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-top: 2px solid var(--accent);
-  background: linear-gradient(165deg, rgba(22, 25, 48, 0.78) 0%, rgba(13, 15, 30, 0.9) 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.45),
-    0 0 24px -10px var(--accent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring), border-color 0.3s ease;
+  border-radius: 16px;
+  border: 1px solid var(--accent);
+  border-top: 3px solid var(--accent);
+  background: linear-gradient(160deg, rgba(var(--interactive-rgb), 0.12), rgba(128, 91, 135, 0.14));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3), 0 0 26px -10px var(--accent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.medium { --accent: var(--subtle-green); }
+.medium { --accent: var(--success); }
 .high { --accent: var(--warm-yellow); }
-.available:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow:
-    0 22px 48px -8px rgba(0, 0, 0, 0.6),
-    0 0 34px -6px var(--accent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
-.locked {
-  border-color: rgba(128, 91, 135, 0.4);
-  border-top-color: var(--accent);
-  opacity: 0.82;
-  background: linear-gradient(165deg, rgba(16, 18, 34, 0.7) 0%, rgba(10, 11, 22, 0.85) 100%);
-}
+.available:hover { transform: translateY(-6px); box-shadow: 0 16px 36px -8px var(--accent); }
+.locked { border-color: var(--muted-purple); border-top-color: var(--accent); opacity: 0.85; }
 
 .ribbon {
-  position: absolute;
-  top: -11px;
-  right: 14px;
-  padding: 0.22rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font-family: var(--font-display);
-  font-size: 0.66rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg-primary);
-  background: linear-gradient(135deg, var(--warm-yellow), #e5c136 60%, var(--text-secondary));
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), 0 0 18px var(--glow-y);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  position: absolute; top: -11px; right: 12px; padding: 0.2rem 0.65rem; border-radius: 999px;
+  font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--bg-primary); background: linear-gradient(90deg, var(--warm-yellow), var(--text-secondary));
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5), 0 0 22px var(--glow-y);
 }
 
 .stack { display: grid; flex: 1; border-radius: 10px; cursor: help; }
-.stack:focus-visible { outline: 2px solid var(--soft-blue); outline-offset: 3px; }
+.stack:focus-visible { outline: 2px solid var(--accent-interactive); outline-offset: 3px; }
 .main, .preview { grid-area: 1 / 1; transition: opacity 0.25s ease, transform 0.25s ease; }
 .main { display: flex; flex-direction: column; gap: 0.55rem; }
 .head { display: flex; align-items: center; gap: 0.65rem; }
@@ -69,8 +42,8 @@
 .title { margin: 0; color: var(--text-primary); font-size: 1rem; line-height: 1.25; }
 .xp { margin: 0; color: var(--accent); font-size: 1.05rem; font-weight: 800; text-shadow: 0 0 14px var(--accent); }
 .locked .xp { color: var(--silver); text-shadow: none; }
-.desc { margin: 0; color: rgba(255, 255, 255, 0.84); font-size: 0.82rem; line-height: 1.4; }
-.hint { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: auto; color: var(--soft-blue); font-size: 0.7rem; opacity: 0.85; }
+.desc { margin: 0; color: var(--text-body); font-size: 0.82rem; line-height: 1.4; }
+.hint { composes: micro from '../../styles/micro.module.css'; display: inline-flex; align-items: center; gap: 0.3rem; margin-top: auto; color: var(--accent-interactive); opacity: 0.9; }
 .hintTap { display: none; }
 @media (hover: none) { .hintHover { display: none; } .hintTap { display: inline; } }
 

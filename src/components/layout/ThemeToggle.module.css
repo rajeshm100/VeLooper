@@ -1,0 +1,39 @@
+/* the small micro-label look is applied through the tokens so it matches everywhere */
+.group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem 0.3rem 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.35);
+}
+.icon { margin-right: 0.3rem; color: var(--text-muted); font-size: 0.8rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: var(--micro-size);
+  font-weight: 700;
+  letter-spacing: var(--micro-track);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn:hover { color: var(--text-primary); }
+.on { color: var(--nav-active); background: var(--nav-active-bg); box-shadow: inset 0 0 0 1px var(--nav-active-ring); }
+.dot { width: 9px; height: 9px; border-radius: 50%; }
+.classic { background: linear-gradient(135deg, #f4e98c, #d2af26); }
+.neon { background: linear-gradient(135deg, #22d3ee, #34d399); }
+.compact .icon { display: none; }
+.compact { padding: 0.15rem; }
+.compact .btn { padding: 0.2rem 0.55rem; }
+@media (max-width: 480px) {
+  .btn { padding: 0.25rem 0.55rem; }
+}

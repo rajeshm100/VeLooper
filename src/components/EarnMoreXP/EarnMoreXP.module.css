@@ -1,5 +1,5 @@
-.remaining { margin: 0 0 0.4rem; color: var(--subtle-green); font-weight: 700; text-shadow: 0 0 14px var(--glow-y); }
-.sub { margin: 0 0 0.6rem; color: rgba(255, 255, 255, 0.84); }
+.remaining { margin: 0 0 0.4rem; color: var(--success); font-weight: 700; text-shadow: 0 0 14px var(--glow-y); }
+.sub { margin: 0 0 0.6rem; color: var(--text-body); }
 .art { display: block; width: 100%; max-width: 390px; height: auto; margin: 0 auto 0.9rem; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4)); }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; width: 100%; padding-top: 0.6rem; }
 @media (max-width: 899px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

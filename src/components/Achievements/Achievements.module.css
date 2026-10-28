@@ -1,45 +1,28 @@
-.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 1rem; width: 100%; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 0.9rem; width: 100%; }
 .tile {
-  position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
-  padding: 1.25rem 0.85rem; text-align: center; border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08); background: rgba(18, 20, 38, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring), border-color 0.3s ease;
+  position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+  padding: 1rem 0.7rem; text-align: center; border-radius: 18px; border: 1px solid rgba(192, 192, 192, 0.25);
+  background: rgba(255, 255, 255, 0.04); transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.tile:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
+.tile:hover { transform: translateY(-4px); }
 .icon {
-  display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 0.35rem; border-radius: 50%;
-  font-size: 1.45rem; color: var(--text-primary); background: rgba(128, 91, 135, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-  transition: transform 0.35s var(--ease-spring);
+  display: flex; align-items: center; justify-content: center; width: 54px; height: 54px; margin-bottom: 0.2rem; border-radius: 50%;
+  font-size: 1.4rem; color: var(--text-primary); background: var(--muted-purple);
 }
-.tile:hover .icon { transform: scale(1.1) rotate(4deg); }
-.name { color: var(--text-primary); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; }
-.desc { color: rgba(255, 255, 255, 0.82); font-size: 0.76rem; line-height: 1.4; }
-.status { margin-top: 0.2rem; color: rgba(255, 255, 255, 0.7); font-style: normal; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-.locked { opacity: 0.72; }
-.locked .icon { filter: grayscale(0.5); }
+.name { color: var(--text-primary); font-family: var(--font-display); font-size: 0.92rem; }
+.desc { color: var(--text-body); font-size: 0.74rem; line-height: 1.35; }
+.status { composes: micro from '../../styles/micro.module.css'; margin-top: 0.15rem; color: var(--text-muted); font-style: normal; }
+.locked { opacity: 0.7; }
+.locked .icon { filter: grayscale(0.4); }
 .earned {
-  border-color: rgba(244, 233, 140, 0.6);
-  background: linear-gradient(165deg, rgba(244, 233, 140, 0.12) 0%, rgba(128, 91, 135, 0.16) 100%);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 28px var(--glow-y), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  border-color: var(--warm-yellow); background: linear-gradient(160deg, rgba(244, 233, 140, 0.14), rgba(128, 91, 135, 0.14));
+  box-shadow: 0 0 28px var(--glow-y), inset 0 0 18px rgba(244, 233, 140, 0.1);
 }
-.earned .icon {
-  color: var(--bg-primary);
-  background: linear-gradient(135deg, var(--warm-yellow), var(--text-secondary));
-  box-shadow: 0 0 24px var(--glow-y);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-.earned .status { color: var(--subtle-green); text-shadow: 0 0 10px var(--glow-g); }
+.earned .icon { color: var(--bg-primary); background: linear-gradient(145deg, var(--warm-yellow), var(--text-secondary)); box-shadow: 0 0 24px var(--glow-y); }
+.earned .status { color: var(--success); }
 .earned::after {
   content: ''; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%; pointer-events: none; transform: skewX(-20deg);
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.3), transparent); animation: shimmer 4.5s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.28), transparent); animation: shimmer 4.5s ease-in-out infinite;
 }
 @keyframes shimmer { 0%, 55% { left: -70%; } 100% { left: 140%; } }
 .isNew { animation: badgePop 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.4); }

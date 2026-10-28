@@ -8,6 +8,7 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
   scrollbar-color: var(--muted-purple) var(--bg-primary);
@@ -24,31 +25,25 @@ body {
   color: var(--text-primary);
   background-color: var(--bg-primary);
   background-image:
-    radial-gradient(rgba(147, 202, 237, 0.07) 1px, transparent 1px),
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 0, 82, 0.75), transparent 80%),
-    radial-gradient(ellipse 60% 40% at 10% 25%, rgba(128, 91, 135, 0.22), transparent 70%),
-    radial-gradient(ellipse 55% 45% at 90% 65%, rgba(0, 0, 82, 0.6), transparent 75%),
-    radial-gradient(ellipse 50% 35% at 50% 95%, rgba(128, 91, 135, 0.18), transparent 70%);
-  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    radial-gradient(ellipse at 15% 0%, var(--wash-1), transparent 55%),
+    radial-gradient(ellipse at 90% 60%, var(--wash-2), transparent 50%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* soft dynamic cosmic ambient glows drifting behind the page */
+/* soft colour glows drifting behind the page */
 body::before {
   content: '';
   position: fixed;
-  inset: -15%;
+  inset: -10%;
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(42% 38% at 20% 18%, rgba(128, 91, 135, 0.32), transparent 68%),
-    radial-gradient(38% 34% at 85% 28%, rgba(147, 202, 237, 0.18), transparent 68%),
-    radial-gradient(42% 36% at 65% 85%, rgba(244, 233, 140, 0.1), transparent 70%);
-  animation: pageDrift 28s ease-in-out infinite alternate;
-  filter: blur(40px);
+    radial-gradient(40% 35% at 15% 20%, var(--drift-1), transparent 70%),
+    radial-gradient(35% 30% at 85% 30%, var(--drift-2), transparent 70%),
+    radial-gradient(40% 35% at 60% 90%, var(--drift-3), transparent 70%);
+  animation: pageDrift 26s ease-in-out infinite alternate;
 }
 body::after {
   content: '';
@@ -57,11 +52,10 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(640px 640px at 25% 8%, rgba(244, 233, 140, calc(0.12 * var(--glow))), transparent 70%),
-    radial-gradient(580px 580px at 92% 58%, rgba(147, 202, 237, calc(0.15 * var(--glow))), transparent 70%),
-    radial-gradient(520px 520px at 45% 98%, rgba(128, 91, 135, calc(0.18 * var(--glow))), transparent 70%);
-  animation: orbPulse 7s ease-in-out infinite;
-  filter: blur(20px);
+    radial-gradient(560px 560px at 20% 6%, var(--orb-1), transparent 70%),
+    radial-gradient(520px 520px at 90% 60%, var(--orb-2), transparent 70%),
+    radial-gradient(480px 480px at 50% 100%, var(--orb-3), transparent 70%);
+  animation: orbPulse 6s ease-in-out infinite;
 }
 
 h1, h2, h3, h4 { font-family: var(--font-display); }
@@ -71,7 +65,7 @@ img { max-width: 100%; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--muted-purple); border-radius: 10px; border: 2px solid var(--bg-primary); }
 ::-webkit-scrollbar-thumb:hover { background: var(--warm-yellow); }
-:focus-visible { outline: 2px solid var(--soft-blue); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
 /* set by scrollToSection() so the section you jumped to flashes */
 [data-flash='true'] { animation: flash 1.6s ease-out; }

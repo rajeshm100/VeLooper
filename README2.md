@@ -27,7 +27,7 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # production build in dist/
 npm run preview    # serve the production build
-npm test           # 32 unit tests: levels, XP rewards, streaks, Lucky Box odds, earn tiers, puzzle, daily limits, badges
+npm test           # 35 unit tests: levels, XP rewards, streaks, Lucky Box odds, earn tiers, puzzle, daily limits, badges, themes
 ```
 
 In development a small orange **Dev panel** (bottom left) lets you add XP and reset the demo, so you
@@ -60,12 +60,12 @@ src/
 │   ├── LevelRoadmap/        # tower + level grid (RewardTower, towerArt)
 │   ├── LevelRewardCard/     # one level in the grid
 │   └── LevelInfo/           # details of the level you tapped
-├── context/PlayerContext.jsx  # XP, level, activity, stats, addXP(), recordGame()
+├── context/                 # PlayerContext (XP, level, activity, stats) and ThemeContext (Classic / Neon)
 ├── hooks/                   # useLocalStorage, useCountUp, useScrollSpy, useMediaQuery, useReducedMotion
 ├── utils/                   # progress.js (levels/XP), stats.js (streaks), format.js, scroll.js (+ tests)
 ├── data/                    # rewardsConfig.js, copy.js, navItems.js
 ├── assets/                  # images (AVIF), illustrations (SVG), level badges (SVG), index.js
-└── styles/                  # tokens.css (the :root palette), base.css, animations.css
+└── styles/                  # tokens.css (palette, role tokens, Neon theme), base.css, animations.css, micro.module.css
 legacy/index.html            # the original single-file site, for reference
 docs/MIGRATION_PLAN.md       # what is done, what is next, porting notes
 ```
@@ -89,6 +89,36 @@ docs/MIGRATION_PLAN.md       # what is done, what is next, porting notes
   `styles/tokens.css`; the `--glow` variable (default `1`) scales every glow at once.
 - **Accessibility and motion.** Buttons are real buttons, the progress bar has ARIA values, and all
   animation respects `prefers-reduced-motion`.
+
+## Colour themes: Classic and Neon
+
+A switch in the header (and the sticky bar) flips between two themes. The choice is saved in `localStorage`
+(`veloop:theme`) and applied before the first paint, so there is no flash. Classic is the default and keeps the
+original `:root` colours exactly. Neon follows the VELoop Rewards site: near-black navy, electric cyan, neon
+green, gold for rewards, slate neutrals.
+
+Components never use raw colours. They use **role tokens**, and each theme maps the roles to colours:
+
+| Role token | Used for | Classic | Neon |
+|---|---|---|---|
+| `--accent-interactive` | links, active nav, focus, info blue, low-value tier | soft blue | electric cyan |
+| `--cta-from / --cta-to` | main action buttons | gold gradient | neon green gradient |
+| `--reward` (gold) | XP numbers, rewards, level badges, chest | gold | gold |
+| `--success` | completed, positive, "just N XP to go" | pastel green | neon green |
+| `--title-color` | section titles | warm yellow | off-white |
+| `--label-color` | numbered section pills | warm yellow | soft cyan |
+| `--text-body / --text-muted` | body and small text | white 84% / 72% | slate 300 / slate 400 |
+| `--bg-primary` | page background | `#161827` | `#0b0f19` |
+
+To add a theme, add a `[data-theme='yourname']` block in `src/styles/tokens.css`, add the name to `THEMES` in
+`src/utils/theme.js`, and add a button option in `ThemeToggle.jsx`. To change the default theme, edit
+`DEFAULT_THEME` in `src/utils/theme.js` (and the early script in `index.html`).
+
+Small labels (stat names, "LV 4", badge status, card hints, pills) share one tracked-uppercase style
+(`styles/micro.module.css` and the `--micro-*` tokens).
+
+Contrast (measured in the browser): every text colour clears WCAG AA (4.5:1) in both themes. Examples in Neon:
+body text 12.9:1, muted text 7.5:1, titles 17.5:1, button text on green 10.0:1.
 
 ## Design system (unchanged from the HTML version)
 
