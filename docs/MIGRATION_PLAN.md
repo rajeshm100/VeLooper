@@ -60,4 +60,5 @@ reference when porting: search it for the names given below.
 - Level rewards are granted inside `grantXP` (already done). Games must not add level rewards themselves.
 - Keep `id`s on the sections: the nav, the scroll-spy and the "jump to" buttons use them.
 - Do not use gradient-clipped text (`background-clip: text`) for headings; use solid colours with a glow.
+- Do not move or scale items sideways on hover or in animations inside a box that scrolls (`overflow: auto`): the shift makes the box scroll sideways. Use background, glow or vertical effects instead. (Fixed once in `XPActivity`.)
 - Do not name a CSS class `reveal` on anything the Lucky Box also uses; the old page had a clash.

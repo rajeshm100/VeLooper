@@ -7,15 +7,15 @@
 .total { color: var(--success); font-family: var(--font-display); font-size: 1.35rem; font-variant-numeric: tabular-nums; text-shadow: 0 0 16px var(--glow-g); }
 .list {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 1rem; width: 100%; max-height: 420px;
-  margin: 0; padding: 0; list-style: none; overflow-y: auto; text-align: left;
+  margin: 0; padding: 0; list-style: none; overflow-x: hidden; overflow-y: auto; text-align: left;
 }
 .item {
   --tone: var(--accent-interactive);
   display: flex; align-items: center; gap: 0.75rem; min-width: 0; padding: 0.6rem 0.8rem; border-radius: 12px;
   border-left: 3px solid var(--tone); background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 18px -8px var(--tone); transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 0 18px -8px var(--tone); transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
-.item:hover { background: rgba(255, 255, 255, 0.09); transform: translateX(3px); }
+.item:hover { background: rgba(255, 255, 255, 0.09); box-shadow: 0 0 22px -4px var(--tone); }
 .gold { --tone: var(--warm-yellow); }
 .purple { --tone: var(--muted-purple); }
 .green { --tone: var(--success); }
@@ -34,8 +34,8 @@
 }
 .fresh { animation: newEntry 2.4s ease-out; }
 @keyframes newEntry {
-  0% { background-color: rgba(244, 233, 140, 0.35); transform: translateX(-10px); opacity: 0.3; }
-  25% { transform: translateX(0); opacity: 1; }
+  0% { background-color: rgba(244, 233, 140, 0.35); transform: scale(0.97); opacity: 0.3; }
+  25% { transform: scale(1); opacity: 1; }
   100% { background-color: rgba(255, 255, 255, 0.04); }
 }
 @media (max-width: 899px) { .list { grid-template-columns: minmax(0, 1fr); } }
