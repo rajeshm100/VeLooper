@@ -9,10 +9,10 @@ const OPTIONS = [
 ];
 
 // Two-way switch between the Classic and Neon colour themes.
-export default function ThemeToggle({ compact = false }) {
+export default function ThemeToggle({ compact = false, className }) {
   const { theme, setTheme } = useTheme();
   return (
-    <div className={clsx(styles.group, compact && styles.compact)} role="group" aria-label="Colour theme">
+    <div className={clsx(styles.group, compact && styles.compact, className)} role="group" aria-label="Colour theme">
       <FaPalette className={styles.icon} aria-hidden="true" />
       {OPTIONS.map((o) => (
         <button

@@ -1,0 +1,21 @@
+/* hidden on larger screens; the inline nav is used there */
+.btn { display: none; }
+@media (max-width: 640px) {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid var(--nav-active-ring);
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--nav-active);
+    box-shadow: 0 0 14px var(--nav-glow);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .btn:hover { background: var(--nav-active-bg); }
+  .btn:active { transform: scale(0.94); }
+}

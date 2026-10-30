@@ -10,7 +10,7 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 72px; /* room for the sticky bar; the only scroll offset on the page */
   scrollbar-color: var(--muted-purple) var(--bg-primary);
   -webkit-text-size-adjust: 100%;
 }

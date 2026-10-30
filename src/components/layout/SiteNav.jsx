@@ -3,7 +3,7 @@ import { navItems } from '../../data/navItems';
 import { scrollToSection } from '../../utils/scroll';
 import styles from './SiteNav.module.css';
 
-// The six section links. Used in the header and in the sticky bar.
+// The six section links, as a row. Used in the header and in the sticky bar (phones use MobileMenu instead).
 export default function SiteNav({ active, variant = 'header', className }) {
   const go = (e, id) => {
     e.preventDefault();
@@ -19,8 +19,7 @@ export default function SiteNav({ active, variant = 'header', className }) {
           aria-current={active === item.id ? 'true' : undefined}
           onClick={(e) => go(e, item.id)}
         >
-          <span className={item.short ? styles.full : undefined}>{item.label}</span>
-          {item.short && <span className={styles.short}>{item.short}</span>}
+          {item.label}
         </a>
       ))}
     </nav>

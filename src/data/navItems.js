@@ -1,7 +1,7 @@
-// Order matches the page. `short` is used on small phones so all links fit on one row.
+// Order matches the page. Used by the header nav, the sticky bar and the mobile menu.
 export const navItems = [
   { id: 'level-display', label: 'Home' },
-  { id: 'level-progression', label: 'Level Progression', short: 'Levels' },
+  { id: 'level-progression', label: 'Level Progression' },
   { id: 'earn-section', label: 'Earn' },
   { id: 'lucky-box-card', label: 'Lucky Box' },
   { id: 'puzzle-card', label: 'Puzzle' },

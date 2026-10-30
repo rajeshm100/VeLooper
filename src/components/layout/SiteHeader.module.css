@@ -43,3 +43,17 @@
 @media (min-width: 992px) {
   .themeSlot { position: absolute; top: 0.9rem; right: 1.2rem; margin: 0; }
 }
+
+/* phones: the inline nav and theme row give way to the hamburger menu */
+@media (max-width: 640px) {
+  .header .desktopNav, .header .themeSlot { display: none; }
+  .brand { padding: 0 2.7rem; } /* leaves room for the hamburger on the right, and keeps the title centred */
+  .title { font-size: 1.1rem; letter-spacing: 0.03em; white-space: nowrap; }
+  .logo img { width: 36px; height: 36px; }
+  .menuBtn { position: absolute; top: 0.5rem; right: 0.6rem; }
+}
+@media (max-width: 340px) {
+  .brand { gap: 0.4rem; }
+  .logo img { width: 32px; height: 32px; }
+  .title { font-size: 1rem; letter-spacing: 0.02em; }
+}

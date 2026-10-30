@@ -1,10 +1,11 @@
 import { copy } from '../../data/copy';
 import { logo } from '../../assets';
+import MenuButton from './MenuButton';
 import SiteNav from './SiteNav';
 import ThemeToggle from './ThemeToggle';
 import styles from './SiteHeader.module.css';
 
-export default function SiteHeader({ active }) {
+export default function SiteHeader({ active, menuOpen, onMenu }) {
   return (
     <header className={styles.header}>
       <div className={styles.brand}>
@@ -20,10 +21,11 @@ export default function SiteHeader({ active }) {
         <h1 className={styles.title}>{copy.siteTitle}</h1>
       </div>
       <p className={styles.subtitle}>{copy.siteSubtitle}</p>
-      <SiteNav active={active} variant="header" />
+      <SiteNav active={active} variant="header" className={styles.desktopNav} />
       <div className={styles.themeSlot}>
         <ThemeToggle />
       </div>
+      <MenuButton open={menuOpen} onClick={onMenu} className={styles.menuBtn} />
     </header>
   );
 }

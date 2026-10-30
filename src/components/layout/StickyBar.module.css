@@ -1,36 +1,41 @@
-.bar { display: none; }
-@media (min-width: 641px) {
-  .bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6rem;
-    padding: 0.5rem 1.2rem;
-    transform: translateY(-110%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(22, 24, 39, 0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  }
-  .show { transform: translateY(0); }
-  .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  .brand img { border-radius: 50%; box-shadow: 0 0 20px var(--glow-y); }
+/* the bar slides down once you scroll past the header */
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 0.5rem 1.2rem;
+  transform: translateY(-110%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(22, 24, 39, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+.show { transform: translateY(0); }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.brand img { border-radius: 50%; box-shadow: 0 0 20px var(--glow-y); }
+
+/* phones: brand on the left, hamburger on the right, no inline links */
+@media (max-width: 640px) {
+  .bar { justify-content: space-between; gap: 0.6rem; padding: 0.4rem 0.8rem; }
+  .bar .links, .bar .theme { display: none; }
+  .brand { font-size: 0.85rem; }
 }

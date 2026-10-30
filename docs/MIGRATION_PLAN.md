@@ -43,6 +43,13 @@ reference when porting: search it for the names given below.
 - [x] Shared micro-label style (`micro.module.css`)
 - [x] Checked both themes at 320 to 1440 px (no overflow) and measured text contrast (all WCAG AA)
 
+## Mobile menu: done
+
+- [x] Hamburger button + slide-in `MobileMenu` (phones only), also in the sticky bar
+- [x] Focus trap, Escape, outside tap, scroll lock, focus return, auto-close on resize
+- [x] Header is shorter on phones (74px instead of 103px); title kept on one line
+- [x] Fixed a doubled scroll offset that left sections 170px below the top after a jump (now one offset, 72px)
+
 ## Ideas for next steps (not required)
 
 - Replace `data/rewardsConfig.js` with a call to `GET /api/rewards/me` (keep the same shape) and move XP granting to the server.
